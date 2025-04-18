@@ -26,7 +26,7 @@ const mockRestaurants = [
 
 export function RestaurantList() {
   return (
-    <section className="px-4 mt-6 space-y-4">
+    <section className="select-none px-4 mt-6 space-y-4">
       <h2 className="text-xl font-bold text-indigo-950">Peixarias</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {mockRestaurants.map((rest, idx) => (

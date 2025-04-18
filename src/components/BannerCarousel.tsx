@@ -9,10 +9,10 @@ const banners = [
 ];
 
 export function BannerCarousel() {
-  const [current, setCurrent] = useState(0);
+  const [current] = useState(0);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden shadow-md">
       <div className="flex transition-transform duration-300" style={{ transform: `translateX(-${current * 100}%)` }}>
         {banners.map((src, index) => (
           <img key={index} src={src} alt={`banner-${index}`} className="w-full object-cover h-100" />
