@@ -27,9 +27,22 @@ export const useCartStore = create<CartStore>((set) => ({
       }
       return { items: [...state.items, item] };
     }),
-  removeFromCart: (name) =>
-    set((state) => ({
-      items: state.items.filter((i) => i.name !== name),
-    })),
+    removeFromCart: (name) =>
+      set((state) => {
+        const item = state.items.find((i) => i.name === name);
+        if (!item) return state;
+    
+        if (item.quantity > 1) {
+          return {
+            items: state.items.map((i) =>
+              i.name === name ? { ...i, quantity: i.quantity - 1 } : i
+            ),
+          };
+        } else {
+          return {
+            items: state.items.filter((i) => i.name !== name),
+          };
+        }
+      }),
   clearCart: () => set({ items: [] }),
 }));

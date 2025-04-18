@@ -21,7 +21,7 @@ interface RestaurantModalProps {
 }
 
 export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
-  const { addToCart } = useCartStore();
+  const { addToCart, removeFromCart } = useCartStore();
 
   return (
     <AnimatePresence>
@@ -43,19 +43,20 @@ export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
             transition={{ duration: 0.3 }}
           >
             <div className="bg-white rounded-t-2xl shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto p-6 relative">
-            <div className="relative w-full h-40">
-              <img
-                src={mockRestaurant.image}
-                alt={mockRestaurant.name}
-                className="w-full h-full object-cover rounded-xl"
-              />
-              <button
-                onClick={onClose}
-                className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm rounded-full p-1.5 text-indigo-950 hover:text-black transition cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+              <div className="relative w-full h-40">
+                <img
+                  src={mockRestaurant.image}
+                  alt={mockRestaurant.name}
+                  className="w-full h-full object-cover rounded-xl"
+                />
+                <button
+                  onClick={onClose}
+                  className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm rounded-full p-1.5 text-indigo-950 hover:text-black transition cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
               <h1 className="text-2xl font-bold text-indigo-950 mt-4">{mockRestaurant.name}</h1>
               <p className="text-gray-600 mt-1">{mockRestaurant.description}</p>
 
@@ -70,12 +71,20 @@ export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
                       </div>
                       <span className="text-indigo-900 font-semibold">R$ {item.price.toFixed(2)}</span>
                     </div>
-                    <button
-                      onClick={() => addToCart({ ...item, quantity: 1 })}
-                      className="mt-2 text-sm text-indigo-950 hover:underline cursor-pointer"
-                    >
-                      Adicionar
-                    </button>
+                    <div className="flex justify-end gap-2 mt-2">
+                      <button
+                        onClick={() => removeFromCart(item.name)}
+                        className="border px-4 py-2 border-black text-white bg-indigo-900 rounded-md text-sm hover:bg-white hover:text-red-500 transition cursor-pointer"
+                      >
+                        −
+                      </button>
+                      <button
+                        onClick={() => addToCart({ ...item, quantity: 1 })}
+                        className="border px-4 py-2 border-black text-white bg-indigo-950 rounded-md text-sm hover:text-green-700 hover:bg-white transition cursor-pointer"
+                      >
+                        +
+                      </button>
+                    </div>
                   </li>
                 ))}
               </ul>
