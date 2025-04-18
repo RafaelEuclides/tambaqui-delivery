@@ -22,12 +22,12 @@ export function Navbar({ openCart }: NavbarProps) {
       </div>
 
       <div className="flex items-center gap-4">
-        
+
         <button
           className="text-white cursor-pointer px-3 py-2 border border-black rounded-md hover:bg-white hover:text-indigo-950 transition duration-200 text-md md:text-md flex items-center gap-2"
         >
           <User className="h-5 w-5" />
-          <span className="hidden sm:inline">Registrar/Entrar</span>
+          <span className="hidden sm:inline">Minha conta</span>
         </button>
 
         <CartButtonWithModal openCart={openCart} />
