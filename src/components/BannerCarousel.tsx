@@ -1,21 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const banners = [
-  "https://th.bing.com/th/id/OIP.Nu_Uh4602CUzynYHS0U7ogHaEK?rs=1&pid=ImgDetMain",
-  "https://th.bing.com/th/id/R.d09db5787014c7aafee801b6d4864b27?rik=c7e%2f6n9T1wR7dQ&pid=ImgRaw&r=0",
-  "https://th.bing.com/th/id/OIP.HgPzTJV9zXnJNbK-MeFLfQHaE8?rs=1&pid=ImgDetMain"
+  "https://th.bing.com/th/id/R.c37b12331f96af35c3428d5f6c47c766?rik=wu%2b9wJJXSR%2fJ7g&pid=ImgRaw&r=0",
+  "https://ac24horas.com/wp-content/uploads/2022/04/FEIRA-DO-PEIXE-RIO-BRANCO-2.jpeg",
+  "https://jbchost.com.br/ht/wp-content/uploads/2016/03/SantaFeira.21316-29.jpg"
 ];
 
 export function BannerCarousel() {
-  const [current] = useState(0);
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrent(prev => (prev + 1) % banners.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
-    <div className="overflow-hidden shadow-md">
-      <div className="flex transition-transform duration-300" style={{ transform: `translateX(-${current * 100}%)` }}>
+    <div
+      className="select-none overflow-hidden shadow-md relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div
+        className="select-none flex transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
         {banners.map((src, index) => (
-          <img key={index} src={src} alt={`banner-${index}`} className="w-full object-cover h-100" />
+          <img
+            key={index}
+            src={src}
+            alt={`banner-${index}`}
+            className="w-full h-[400px] object-cover flex-shrink-0"
+          />
+        ))}
+      </div>
+
+      <div className="select-none absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {banners.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-3 h-3 rounded-full ${
+              current === index ? "bg-white" : "bg-white/50"
+            } transition-colors`}
+          />
         ))}
       </div>
     </div>
