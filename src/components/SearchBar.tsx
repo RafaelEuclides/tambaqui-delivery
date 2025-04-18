@@ -12,7 +12,7 @@ export function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
       <div className="flex justify-center items-center gap-2">
         <input
           type="text"
-          placeholder="Buscar por restaurantes ou barracas de feira..."
+          placeholder="Buscar por barracas de feira ou peixarias..."
           className="w-150 p-3 rounded-lg text-indigo-950 border border-gray-500 focus:outline-none"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
