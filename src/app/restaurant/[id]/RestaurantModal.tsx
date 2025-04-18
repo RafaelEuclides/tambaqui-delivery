@@ -28,7 +28,7 @@ export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
       {isOpen && (
         <>
           <motion.div
-            className="fixed inset-0 z-40"
+            className="fixed inset-0 bg-black/60 z-40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
