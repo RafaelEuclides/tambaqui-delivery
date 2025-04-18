@@ -1,6 +1,6 @@
 'use client';
 
-import { useCartStore } from "@/app/store/cartStore";
+import { useCartStore } from "@/store/cartStore";
 import { ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 

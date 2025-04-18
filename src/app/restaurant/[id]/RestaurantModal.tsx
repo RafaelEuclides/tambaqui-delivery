@@ -1,6 +1,6 @@
 'use client';
 
-import { useCartStore } from "@/app/store/cartStore";
+import { useCartStore } from "@/store/cartStore";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -33,7 +33,7 @@ export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
-        onClick={onClose} // Fechar modal ao clicar no fundo
+        onClick={onClose}
       />
 
       {/* Modal */}
