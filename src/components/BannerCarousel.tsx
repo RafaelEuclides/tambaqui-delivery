@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const banners = [
-  "https://th.bing.com/th/id/R.c37b12331f96af35c3428d5f6c47c766?rik=wu%2b9wJJXSR%2fJ7g&pid=ImgRaw&r=0",
+  "https://www.greenpeace.org/static/planet4-brasil-stateless/2023/05/dc92912a-2022-03-09-07.44.44-1.jpg",
   "https://ac24horas.com/wp-content/uploads/2022/04/FEIRA-DO-PEIXE-RIO-BRANCO-2.jpeg",
   "https://jbchost.com.br/ht/wp-content/uploads/2016/03/SantaFeira.21316-29.jpg"
 ];
