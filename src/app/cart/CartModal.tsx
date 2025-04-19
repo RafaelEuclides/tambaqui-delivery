@@ -3,7 +3,6 @@
 import { useCartStore } from "@/store/cartStore";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { clear } from "console";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -11,7 +10,7 @@ interface CartModalProps {
 }
 
 export function CartModal({ isOpen, onClose }: CartModalProps) {
-  const { items, removeFromCart, clearCart } = useCartStore();
+  const { items, clearCart } = useCartStore();
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
