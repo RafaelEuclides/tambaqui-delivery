@@ -21,7 +21,7 @@ interface RestaurantModalProps {
 }
 
 export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
-  const { addToCart, removeFromCart } = useCartStore();
+  const { items, addToCart, removeFromCart, clearCart } = useCartStore();
 
   return (
     <AnimatePresence>
@@ -72,6 +72,14 @@ export function RestaurantModal({ isOpen, onClose }: RestaurantModalProps) {
                       <span className="text-indigo-900 font-semibold">R$ {item.price.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-end gap-2 mt-2">
+                    {items.length > 0 && (
+                      <button
+                        onClick={clearCart}
+                        className="border bg-red-500 border-red-500 text-white hover:bg-white hover:text-red-500 transition rounded-md px-4 py-1 cursor-pointer"
+                      >
+                        X
+                      </button>
+                    )}
                       <button
                         onClick={() => removeFromCart(item.name)}
                         className="border px-4 py-2 border-black text-white bg-indigo-900 rounded-md text-sm hover:bg-white hover:text-red-500 transition cursor-pointer"
