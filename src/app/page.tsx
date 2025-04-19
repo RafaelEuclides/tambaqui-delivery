@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         <footer className="bg-indigo-950 text-white text-center py-4">
-          <p>© 2023 Tambaqui Delivery. Todos os direitos reservados.</p>
+          <p>© 2025 Tambaqui Delivery. Todos os direitos reservados.</p>
           <p>
             Desenvolvido por{" "}
             <a
