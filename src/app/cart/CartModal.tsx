@@ -3,6 +3,7 @@
 import { useCartStore } from "@/store/cartStore";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { clear } from "console";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -62,7 +63,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
                             R$ {(item.price * item.quantity).toFixed(2)}
                           </p>
                           <button
-                            onClick={() => removeFromCart(item.name)}
+                            onClick={() => clearCart()}
                             className="text-red-500 text-sm cursor-pointer"
                           >
                             ✖
