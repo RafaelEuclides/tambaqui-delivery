@@ -7,7 +7,6 @@ import { CategoryScroll } from "@/components/CategoryScroll";
 import { RestaurantList } from "@/components/RestaurantList";
 import { SearchBar } from "@/components/SearchBar";
 import { CartModal } from "@/app/cart/CartModal";
-import { Hourglass } from "lucide-react";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
