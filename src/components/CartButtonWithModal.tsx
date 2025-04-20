@@ -14,7 +14,7 @@ export function CartButtonWithModal({ openCart }: CartButtonWithModalProps) {
 
   return (
     <button onClick={openCart} className="relative">
-      <ShoppingCart className="w-6 h-6 text-white cursor-pointer" />
+      <ShoppingCart className="w-6 h-6 text-gray-400 hover:text-white cursor-pointer" />
       {totalItems > 0 && (
         <motion.span
           key={totalItems}
