@@ -7,6 +7,7 @@ import { CategoryScroll } from "@/components/CategoryScroll";
 import { RestaurantList } from "@/components/RestaurantList";
 import { SearchBar } from "@/components/SearchBar";
 import { CartModal } from "@/app/cart/CartModal";
+import { Hourglass } from "lucide-react";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function Home() {
         </div>
 
         <footer className="bg-indigo-950 text-white text-center py-4">
-          <p>© 2025 Tambaqui Delivery. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Tambaqui Delivery. Todos os direitos reservados.</p>
           <p>
             Desenvolvido por{" "}
             <a
