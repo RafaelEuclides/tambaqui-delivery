@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/NavBar";
 import { BannerCarousel } from "@/components/BannerCarousel";
 import { CategoryScroll } from "@/components/CategoryScroll";
-import { RestaurantList } from "@/components/RestaurantList";
+import { SettlementList } from "@/components/SettlementList";
 import { SearchBar } from "@/components/SearchBar";
 import { CartModal } from "@/app/cart/CartModal";
 
@@ -17,23 +17,35 @@ export default function Home() {
 
   return (
     <>
-        <Navbar openCart={() => setModalOpen(true)} />
-        <CartModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-      <main className="select-none min-h-screen bg-gray-50">
-        <div className="flex-grow mt-20 pb-24">
-          <BannerCarousel />
-          <SearchBar onSearch={handleSearch} />
-          <CategoryScroll />
-          <RestaurantList />
-        </div>
+      <Navbar openCart={() => setModalOpen(true)} />
+      <CartModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
 
-        <footer className="bg-indigo-950 text-white text-center py-4">
+      <main className="select-none bg-gray-50 pt-20 min-h-screen w-full">
+        <section className="w-full">
+          <BannerCarousel />
+        </section>
+
+        <section className="w-full px-4 mt-4">
+          <SearchBar onSearch={handleSearch} />
+        </section>
+
+        <section className="w-full px-4 mt-2">
+          <CategoryScroll />
+        </section>
+
+        <section className="w-full px-4 mt-6 pb-10">
+          <SettlementList />
+        </section>
+
+        <footer className="bg-indigo-950 text-white text-center py-6 mt-10 w-full">
           <p>© {new Date().getFullYear()} Tambaqui Delivery. Todos os direitos reservados.</p>
-          <p>
+          <p className="mt-1">
             Desenvolvido por{" "}
             <a
               href="https://www.linkedin.com/in/rafael-euclides-martins-da-silva-b753261a5/"
-              className="text-white underline italic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline italic"
             >
               Rafael Euclides
             </a>

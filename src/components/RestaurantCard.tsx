@@ -21,12 +21,16 @@ export function RestaurantCard(props: RestaurantCardProps) {
     <>
       <div
         onClick={handleOpenModal}
-        className="w-full bg-white rounded-2xl shadow-md overflow-hidden transition hover:scale-[1.02] duration-200 cursor-pointer"
+        className="w-full bg-white rounded-2xl shadow-md transition-transform hover:scale-105 duration-200 cursor-pointer"
       >
-        <img src={props.image} alt={props.name} className="w-full h-36 object-cover" />
+        <img
+          src={props.image}
+          alt={props.name}
+          className="w-full h-40 sm:h-44 md:h-48 object-cover"
+        />
         <div className="p-4">
-          <h2 className="font-semibold text-lg text-indigo-950">{props.name}</h2>
-          <p className="text-sm text-gray-500">
+          <h2 className="font-semibold text-indigo-950 text-base sm:text-lg truncate">{props.name}</h2>
+          <p className="text-sm text-gray-600 mt-1">
             ⭐ {props.rating} • {props.category} • {props.deliveryTime}
           </p>
         </div>
@@ -34,7 +38,7 @@ export function RestaurantCard(props: RestaurantCardProps) {
 
       <RestaurantModal
         isOpen={isModalOpen}
-        onClose={handleCloseModal} 
+        onClose={handleCloseModal}
       />
     </>
   );
