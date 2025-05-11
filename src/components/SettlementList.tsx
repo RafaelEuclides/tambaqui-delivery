@@ -1,4 +1,4 @@
-import { JSX, Key, useRef, useEffect } from "react";
+import { Key, useRef, useEffect } from "react";
 import { RestaurantCard } from "./RestaurantCard";
 
 const categories: (keyof typeof restaurantsByCategory)[] = [
